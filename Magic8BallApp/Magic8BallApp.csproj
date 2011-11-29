@@ -38,6 +38,9 @@
   <PropertyGroup>
     <ApplicationIcon>Magic8Ball.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Magic8BallApp.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
