@@ -16,16 +16,18 @@ namespace Magic8BallServiceHost
             "Possibly",
             "Likely",
             "Very Likely",
-            "Absolutely"
+            "Absolutely!"
         };
 
         public string Shake(string question)
         {
+            // Choose a random answer from the list:
             long tickCount = 0;
             QueryPerformanceCounter(out tickCount);
             string response = responses[new Random((int)tickCount).Next(responses.Length)];
 
-            Console.WriteLine(string.Format("Magic8Ball answered '{0}' to '{1}'", response, question));
+            // Output info to the server console:
+            Console.WriteLine(string.Format("{0}: Question: '{1}' Answer: '{2}'", DateTime.Now, question, response));
 
             return response;
         }

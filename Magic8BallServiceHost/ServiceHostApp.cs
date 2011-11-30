@@ -16,12 +16,15 @@ namespace Magic8BallServiceHost
                     host.Open();
 
                     Console.WriteLine("The Magic8Ball service awaits your questions:");
+
+                    // Display endpoints the service is currently listening on:
                     foreach (var e in host.Description.Endpoints)
                     {
                         Console.WriteLine("    " + e.Name + " @ " + e.Address);
                     }
 
-                    do { Console.WriteLine("Press [Esc] to quit"); }
+                    // Tell the user how to quit and wait until they do!
+                    do { Console.WriteLine("\r\nPress [Esc] to quit ...\r\n"); }
                     while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
                     host.Close();
