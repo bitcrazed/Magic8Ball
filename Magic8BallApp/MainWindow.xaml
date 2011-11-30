@@ -5,38 +5,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Height="265" Width="525" ResizeMode="NoResize" IsTabStop="False" Loaded="Window_Loaded">
-    <Grid Height="225" Margin="8,0,0,0">
+    <Grid Height="225" Margin="8,0,0,0" Background="#2BFFFFFF" Opacity="0.6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="76*" />
-            <ColumnDefinition Width="385*" />
-            <ColumnDefinition Width="42*" />
+            <ColumnDefinition Width="12*" />
+            <ColumnDefinition Width="442*" />
+            <ColumnDefinition Width="41*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="45*" />
-            <RowDefinition Height="49*" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="48*" />
+            <RowDefinition Height="57*" />
             <RowDefinition Height="46*" />
             <RowDefinition Height="29" />
         </Grid.RowDefinitions>
-        <TextBlock FontSize="28" Height="56" HorizontalAlignment="Left" Name="textBlockTitle" Text="The Magic8Ball" VerticalAlignment="Top" Width="245" Grid.Column="1" />
+        <Image Height="225" HorizontalAlignment="Left" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="212" Source="/Magic8BallApp;component/Magic8Ball.png" Grid.RowSpan="5" Margin="271,0,0,0" Grid.ColumnSpan="2" Grid.Column="1" />
+        <TextBlock FontSize="28" Height="56" Name="textBlockTitle" Text="The Magic8Ball" VerticalAlignment="Top" Grid.Column="1" Margin="0,0,197,0" FontFamily="Segoe UI" />
 
         <Label Content="Question" Height="28" HorizontalAlignment="Left" Margin="10,7,0,0" Name="labelQuestion" VerticalAlignment="Top" Grid.Row="1" />
-        <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,9,0,0" Name="textBoxQuestion" VerticalAlignment="Top" Width="415" TabIndex="0" Grid.ColumnSpan="2" />
+        <TextBox Grid.Column="1" Grid.Row="1" Height="35" HorizontalAlignment="Left" Name="textBoxQuestion" VerticalAlignment="Top" Width="442" TabIndex="0" Opacity="0.85" FontSize="16" BorderThickness="3" FontFamily="Segoe UI" />
 
         <Button Content="Ask the Magic8Ball"
             Height="41"
             HorizontalAlignment="Left"
-            Margin="150,0,0,0"
+            Margin="48,0,0,0"
             Name="buttonAsk"
             VerticalAlignment="Top" IsEnabled="False"
-            Click="buttonAsk_Click" Grid.Row="2" Grid.Column="1" TabIndex="1" IsDefault="True" />
-
+            Click="buttonAsk_Click" Grid.Row="2" Grid.Column="1" TabIndex="1" IsDefault="True" Width="197" FontSize="18" FontWeight="SemiBold" FontFamily="Segoe UI" Background="{x:Null}"></Button>
         <Label Content="Answer" Height="28" HorizontalAlignment="Left" Margin="12,9,0,0" Name="labelAnswer" VerticalAlignment="Top" Grid.Row="3" />
-        <TextBox Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="0,11,0,0" Name="textBoxAnswer" VerticalAlignment="Top" Width="415" TabIndex="2" Grid.ColumnSpan="2" />
+        <TextBox Grid.Column="1" Grid.Row="3" Height="37" HorizontalAlignment="Left" Name="textBoxAnswer" VerticalAlignment="Top" Width="442" TabIndex="2" Opacity="0.85" FontSize="16" BorderThickness="3" FontFamily="Segoe UI" />
 
         <StatusBar Grid.Row="4" Height="29" HorizontalAlignment="Left" Name="statusBar" VerticalAlignment="Center" FontSize="10" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Width="503">
-            <StatusBarItem />
+            <StatusBarItem Opacity="0.7" />
         </StatusBar>
-        <Image Height="68" HorizontalAlignment="Left" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="61" Source="/Magic8BallApp;component/Magic8Ball.ico" Grid.RowSpan="2" Margin="7,0,0,0" />
     </Grid>
 </Window>

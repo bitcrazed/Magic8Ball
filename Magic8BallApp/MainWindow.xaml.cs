@@ -42,7 +42,7 @@ namespace Magic8BallApp
         {
             buttonAsk.IsEnabled = true;
             statusBar.Items[0] = string.Format(
-                "Talking to Magic8Ball service '{0}' @: {1}",
+                "Talking to Magic8Ball endpoint '{0}' @: {1}",
                 _client.Endpoint.Name,
                 _client.Endpoint.Address.ToString());
         }
