@@ -2,10 +2,10 @@
 
 namespace Magic8BallServiceHost
 {
-    public sealed class Magic8Ball : IMagic8Ball
+    sealed class Magic8Ball : IMagic8Ball
     {
         [System.Runtime.InteropServices.DllImport("Kernel32.dll")]
-        public static extern bool QueryPerformanceCounter(out long perfcount);
+        private static extern bool QueryPerformanceCounter(out long perfcount);
 
         private string[] responses = 
         { 
@@ -18,6 +18,7 @@ namespace Magic8BallServiceHost
             "Very Likely",
             "Absolutely!"
         };
+
 
         public string Shake(string question)
         {
