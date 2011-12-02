@@ -8,44 +8,51 @@
 <body>
     <h1>Magic8Ball Test Page</h1>
     <p>Tests the Magic8Ball Service's AJAX endpoint using JSON over HTTP</p>
-    
     <form id="magic8ball-form">
-        <label for="question" id="question-label">Question:</label>
-        <input id="question" type="text" />
-        <br />
-        <br />
-        <input type="button" id="ask" value="Ask the Magic8Ball ..." />
-        <br />
-        <br />
-        <label for="answer" id="answer-label">Answer:</label>
+    <label for="question" id="question-label">
+        Question:</label>
+    <input id="question" type="text" />
+    <br />
+    <br />
+    <input type="button" id="ask" value="Ask the Magic8Ball ..." />
+    <br />
+    <br />
+    <label for="answer" id="answer-label">
+        Answer:</label>
     <input id="answer" type="text" />
     </form>
 
     <script type="text/javascript">
         $(function () {
+            $("input#answer").text('---');
             $("input#question").focus();
             $("#ask").click(function () {
                 $("input#question").focus().select();
                 var question = $("input#question").val();
-                if (question != "") {
-                    // <HACK: Enable cross-site scripting for this limited test scenario.
-                    // NB: DO NOT DO THIS IN PRODUCTION CODE WITHOUT A FULL UNDERSTANDING OF THE ISSUES!!
-                    // See http://en.wikipedia.org/wiki/Cross-site_scripting for more info.
-                    jQuery.support.cors = true;
-                    // /HACK>
+                if (question != "" && question != null) {
+                    // Remove any trailing '?' chars:
+                    while (question[question.length - 1] == '?') {
+                        question = question.substring(0, question.length - 1);
+                    }
 
-                    // Issue AJAX request:
-                    var dataString = 'shake/\"' + question + '\"';
-                    $.get("http://localhost:9000/Magic8Ball-WEB/" + dataString,
-                        function (answer) {
-                            $("input#answer").val(answer);
-                        });
+                    // Escape the question to make it safer. Might want to do more input scrubbing here.
+                    question = escape(question);
+
+                    // Issue the JSON request:
+                    $.getJSON('http://localhost:9000/Magic8Ball-WEB/shake/' + question + '?callback=?',
+                        null,
+                        Answer);
                 }
                 else {
                     alert("You must type a question to send to the Magic8Ball");
                 }
             });
         });
+
+        function Answer(answer) {
+            $("input#answer").val(answer);            
+        }
+
     </script>
 </body>
 </html>
