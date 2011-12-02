@@ -7,7 +7,7 @@ namespace Magic8BallServiceHost
     public interface IMagic8Ball
     {
         [OperationContract]
-        [WebGet(UriTemplate = "shake/{question}")]
+        [WebGet(ResponseFormat=WebMessageFormat.Json, UriTemplate="shake/{question}")]
         string Shake(string question);
     }
 }
