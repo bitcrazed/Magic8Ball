@@ -21,6 +21,7 @@ Play. Tweak. Modify. Enjoy!
 - Added test HTML page to exercise new webHttpBinding endpoint.
 - Several minor improvements to user experience in the client app and server host.
 - Removed unnecessary references and using statements.
+
 ###Release 1.0 (13th April 2011)
 - Initial release ported to .NET 4.0 and cleaned up for public consumption.
 
