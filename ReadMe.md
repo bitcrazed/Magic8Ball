@@ -13,3 +13,16 @@ This project also shows how to configure services & clients using app.config, si
 I have used variations of this app for many years to explain and demonstrate key WCF features. I hope you find it useful.
 
 Play. Tweak. Modify. Enjoy!
+
+##Release History
+###Release 1.1 (1st December 2011)
+- Exposed service via new webHttpBinding to support REST & JSON clients.
+- Added support for cross-domain requests to support test HTML page.
+- Added test HTML page to exercise new webHttpBinding endpoint.
+- Several minor improvements to user experience in the client app and server host.
+- Removed unnecessary references and using statements.
+###Release 1.0 (13th April 2011)
+- Initial release ported to .NET 4.0 and cleaned up for public consumption.
+
+###Copyright:
+© 2011, Richard Turner (rich@bitcrazed.com)
